@@ -2,6 +2,9 @@ package utils;
 
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static utils.Butil.mandatoryValue;
 import static utils.Butil.optionalValue;
@@ -70,4 +73,10 @@ class ButilTest {
 
    }
 
+   @Test
+   void map() {
+      String pathAsString = "/etc";
+      Path path = mandatoryValue(pathAsString).map(Paths::get);
+      assertEquals(path.toAbsolutePath().toString(), "/etc");
+   }
 }

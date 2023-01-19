@@ -16,6 +16,7 @@
 
 package utils;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -95,6 +96,10 @@ public class Butil<T> {
 
     public T get() {
         return this.object;
+    }
+
+    public <R> R map(Function<T, R> function) {
+        return function.apply(this.object);
     }
 
 }
